@@ -1,15 +1,25 @@
 # Vault Auto-unseal using GCP Cloud KMS
 
-These assets are provided to perform the tasks described in the [Auto-unseal with Google Cloud
-KMS](https://learn.hashicorp.com/vault/operations/autounseal-gcp-kms) guide.
+These assets help you to perform the tasks described in the [Auto-unseal with Google Cloud
+KMS](https://learn.hashicorp.com/vault/operations/autounseal-gcp-kms) tutorial.
 
 ---
 
 ## Steps
 
-1. Set this location as your working directory
+1. Clone this respository:
 
-1. Provide necessary GCP account information in the `terraform.tfvars.example` and save it as `terraform.tfvars`.
+    ```shell
+    git clone https://github.com/hashicorp-education/learn-gcp-kms-unseal.git
+    ```
+
+1. Change your working directory to `learn-gcp-kms-unseal`:
+
+    ```shell
+    cd learn-gcp-kms-unseal
+    ```
+
+1. Provide necessary GCP account information in the `terraform.tfvars.example`, and save it as `terraform.tfvars`.
 
     **Example:**
 
@@ -18,9 +28,9 @@ KMS](https://learn.hashicorp.com/vault/operations/autounseal-gcp-kms) guide.
     account_file_path = "/tmp/GCP/my-service-account.json"
     ```
 
-    > Set the `account_file_path` to where your Cloud IAM service account file is located. This is the service account that the Terraform uses to provision GCP resources. If you do not have one, follow the [GCP documentation](https://cloud.google.com/docs/authentication/getting-started) to create a service account and download the JSON file.
+    > Set the `account_file_path` to the location of your Cloud IAM service account file. This is the service account that the Terraform uses to provision GCP resources. If you do not have one, follow the [GCP documentation](https://cloud.google.com/docs/authentication/getting-started) to create a service account and download the JSON file.
 
-1. This guide expects a Cloud KMS key ring and crypto key to already exists. If you **don't** have one to use for Vault auto-unseal, un-comment the key ring and key creation portion in the `main.tf` file.  **NOTE:** Keep line 93 commented out and use line 92.
+1. This guide expects a Cloud KMS key ring and crypto key to already exist. If you **don't** have one to use for Vault auto-unseal, un-comment the key ring and key creation part of the `main.tf` file.  **NOTE:** Keep line 93 commented out and use line 92.
 
     ```shell
     ...
